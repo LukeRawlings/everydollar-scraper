@@ -1,6 +1,6 @@
 # EveryDollar Scraper
 
-Totals the 'Remaining' column from the EveryDollar budgeting web app. 
+Totals the 'Remaining' column from the [EveryDollar](https://www.ramseysolutions.com/ramseyplus/everydollar) budgeting web app. 
 
 ## Input
 An html file of EveryDollar's budgeting tool.

@@ -36,7 +36,7 @@ for(let i = 0; i < budgetItemRows.length; i++) { // Loop through each budget ite
         continue;
     }
 
-    value = `${moneyInteger.innerHTML}.${moneyFractional.innerHTML}`;
+    value = `${moneyInteger.innerHTML}.${moneyFractional.innerHTML}`; // Get the value
     value = value.replace(/,/g, '');
 
     try {
@@ -48,7 +48,7 @@ for(let i = 0; i < budgetItemRows.length; i++) { // Loop through each budget ite
 
     for(const attribute of labelElement.attributes) {
         if(attribute.name === 'data-text')
-            label = attribute.value;
+            label = attribute.value;  // Get the label
     }    
 
     totalRemaining = ExactMath.add(totalRemaining, value);
@@ -57,20 +57,18 @@ for(let i = 0; i < budgetItemRows.length; i++) { // Loop through each budget ite
     array.push([label, value]);
 }
 console.log(`End of loop. totalRemaining: ${totalRemaining}`);
-
 array.push(["Total",totalRemaining]);
 
+// Build csv from the nested array and write to file
 const csvStr = buildCsvStr(array);
 const filename = `everydollar-remaining-${Date.now()}.csv`;
 fs.writeFileSync(filename, csvStr);
 console.log(`csv output written to ${filename}`);
-
 console.log("End of scraper script");
 
 
 
 function buildCsvStr(array) { 
-// const buildCsvStr = (array) => {
     let str = "";
     for(const innerArray of array) {
         for(let i = 0; i<innerArray.length; i++) {
